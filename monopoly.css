@@ -1,0 +1,587 @@
+/*全局设定*/
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Comic Sans MS", "微软雅黑";
+	user-select: none;
+	outline: transparent;
+}
+
+li {
+	list-style-type: none;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	color: #454545;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+.blacknwhite {
+	color: #fff;
+	background: #454545;
+}
+
+.middle {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.full {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
+
+/*设置选项*/
+.setting {
+	background: rgba(0, 0, 0, .8);
+	z-index: 3;
+}
+
+.welcome {
+	top: 13%;
+	color: #fff;
+	font-size: 36px;
+	white-space: nowrap;
+}
+
+/*人数*/
+.choosebox {
+	width: 400px;
+	height: 300px;
+	background: #f2f2f2;
+	border-radius: 13px;
+}
+
+.choosebox h2 {
+	text-align: center;
+	height: 26px;
+	padding: 26px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.choosebox ul {
+	width: 100%;
+	height: calc(100% - 78px);
+}
+
+.choosebox li {
+	float: left;
+	width: 50%;
+	height: 50%;
+	text-align: center;
+	font-size: 26px;
+	line-height: 111px;
+	cursor: pointer;
+	box-shadow: .5px .5px .5px inset #454545, -.5px -.5px .5px inset #454545;
+}
+
+.choosebox li:hover {
+	background: #ccc;
+}
+
+.choosebox li:nth-of-type(3) {
+	border-bottom-left-radius: 13px
+}
+
+.choosebox li:nth-of-type(4) {
+	border-bottom-right-radius: 13px
+}
+
+/*选角*/
+.choosechr {
+	width: 700px;
+	height: 200px;
+	background: #f2f2f2;
+	border-radius: 13px;
+	display: none;
+}
+
+.choosechr h2 {
+	text-align: center;
+	line-height: 26px;
+	padding: 13px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.choosechr ul {
+	width: 100%;
+	height: calc(100% - 52px);
+}
+
+.choosechr ul h3 {
+	font-size: 13px;
+	text-align: center;
+	background: #42AFE1;
+	color: #fff;
+}
+
+.choosechr li {
+	position: relative;
+	float: left;
+	width: 100px;
+	height: 100%;
+}
+
+.choosechr img {
+	width: 80%;
+}
+
+.choosechr img:hover {
+	width: 95%;
+	cursor: pointer;
+	transition: .5s;
+}
+.index {
+	position: absolute;
+	bottom: 3%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.arrow {
+	position: absolute;
+	width: 16px;
+	left: 50%;
+	transform: translateX(-50%);
+	animation: arrow 1s infinite;
+}
+
+
+/*地图*/
+.map {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+	grid-gap: 3px;
+	overflow: hidden;
+}
+.box {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	box-shadow: 1px 1px 1px inset #454545, 1px -1px 1px inset #454545, -1px 1px 1px inset #454545, -1px -1px 1px inset #454545;
+	text-align: center;
+	border-radius: 13px;
+}
+
+.box h3, .dialog h2, .infobox h2 {
+	background: #454545;
+	color: #fff;
+	font-weight: 100;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 15px;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	border-top-right-radius: 13px;
+	border-top-left-radius: 13px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+/* 角色棋子 */
+.box .chr {
+	width: 85%;
+	position: absolute;
+	bottom: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+	animation: moving .8s;
+	z-index: 1;
+}
+
+/* 中间区域 */
+.big-box {
+	position: relative;
+	background: #fff;
+	box-shadow: none;
+	grid-area: 2 / 2 / -2 / -2;
+	text-align: left;
+}
+
+/* 当前玩家 */
+.title {
+	display: inline-block;
+	padding: 5px 13px;
+	color: #fff;
+	border-radius: 10px;
+}
+
+/* 设置按钮 */
+.big-box button, .big-box span {
+	position: relative;
+	float: right;
+	border: none;
+	margin-left: 3px;
+	padding: 7px 13px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+/* 角色信息区域 */
+.info {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 99px;
+}
+
+.info>div {
+	display: inline-block;
+	position: relative;
+	width: calc(25% - 5px);
+	height: 100%;
+}
+
+.info h2 {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 3px 13px;
+	border-radius: 10px;
+	color: #fff;
+	white-space: nowrap;
+}
+
+.info h3 {
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.info .chr {
+	position: absolute;
+	width: 65px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 3;
+	bottom: 36px;
+}
+
+/* 游戏说明 */
+.instruction {
+	background: #f2f2f2;
+	border-radius: 10px;
+	transition: .5s;
+	z-index: 1;
+	height: 0;
+	overflow: scroll;
+}
+
+.instruction h2 {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.instruction ul {
+	box-sizing: border-box;
+	padding: 13px;
+}
+
+.instruction li {
+	list-style-type: circle;
+	list-style-position: inside;
+	margin: 5px;
+}
+
+/*掷骰子区*/
+.control {
+	width: 169px;
+	height: 169px;
+	border-radius: 50%;
+	box-shadow: 2px 2px 2px #888, -2px 2px 2px #888, 2px -2px 2px #888, -2px -2px 2px #888, 
+	4px 4px 4px #999 inset, -4px -4px 4px #999 inset, 4px -4px 4px #999 inset, -4px 4px 4px #999 inset;
+	top: 40%;
+}
+
+.dice {
+	width: 100px;
+	height: 100px;
+	background-image: url(img/1.jpg);
+	cursor: pointer;
+	border-radius: 25%;
+}
+
+/* 购买框 */
+.dialog {
+	width: 600px;
+	height: 260px;
+	border-radius: 13px;
+	background: #fff;
+	border: 3px solid #454545;
+	display: none;
+}
+
+.dialog p {
+	width: 100%;
+	font-size: 22px;
+	text-align: center;
+}
+
+.dialog h2, .infobox h2 {
+	height: 52px;
+	line-height: 52px;
+	text-indent: 1em;
+	font-size: 20px;
+	letter-spacing: 13px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.btn {
+	background: #f2f2f2;
+	width: 50%;
+	height: 20%;
+	position: absolute;
+	bottom: 0%;
+	text-align: center;
+	line-height: 60px;
+}
+
+.btn:first-of-type {
+	left: 0;
+	border-bottom-left-radius: 8px;
+	color: #000;
+	box-shadow: -1px 0 silver inset;
+}
+
+.btn:last-of-type {
+	right: 0;
+	border-bottom-right-radius: 8px;
+}
+
+.btn:hover {
+	box-shadow: 0 5em inset silver;
+	cursor: pointer;
+}
+
+/* 消息框 */
+.msgbox {
+	border: 2px solid #666;
+	border-radius: 13px;
+	font-weight: 100;
+	font-size: 22px;
+	padding: 2em 2em;
+	background: #f1f1f1;
+	top: 45%;
+	white-space: nowrap;
+	display: none;
+}
+
+/* 地产信息卡片 */
+.infobox {
+	width: 200px;
+	height: 300px;
+	border-radius: 13px;
+	background: #f2f2f2;
+	border: 3px solid #454545;
+	display: none;
+}
+
+.infobox ul {
+	width: 100%;
+	height: 80%;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	position: absolute;
+	top: 20%;
+	left: 0;
+}
+
+.infobox li {
+	display: block;
+	width: calc(100% - 20px);
+	padding: 10px;
+}
+
+/*施工*/
+.construct img {
+	position: absolute;
+	z-index: 3;
+}
+
+.construct img:first-child {
+	width: 100%;
+	bottom: 0%;
+	left: 50%;
+	transform: translateX(-50%);
+	animation: c1 2s;
+}
+
+.construct img:nth-child(2) {
+	width: 100%;
+	bottom: 3%;
+	right: -30%;
+	animation: c2 2s;
+}
+
+.construct img:nth-child(3) {
+	width: 100%;
+	bottom: 3%;
+	left: -30%;
+	animation: c3 2s;
+}
+
+.construct img:nth-child(4) {
+	width: 50%;
+	bottom: 30%;
+	right: 0%;
+	transform: rotate(-45deg);
+	animation: c4 2s;
+}
+
+.construct img:nth-child(5) {
+	width: 180%;
+	bottom: -13%;
+	left: -30%;
+	animation: c5 2s;
+}
+
+/*房子*/
+.box img.house {
+	position: absolute;
+	bottom: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 90%;
+}
+
+/*动画都在这里*/
+@keyframes arrow {
+	0% {
+		bottom: 1%;
+	}
+
+	50% {
+		bottom: 3%;
+	}
+
+	100% {
+		bottom: 1%;
+	}
+}
+
+@keyframes moving {
+	0% {
+		width: 85%;
+	}
+
+	50% {
+		width: 100%;
+	}
+
+	100% {
+		width: 85%;
+	}
+}
+
+@keyframes c1 {
+	0% {
+		opacity: 0;
+	}
+
+	80% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes c2 {
+	0% {
+		opacity: 0;
+		right: -100%;
+	}
+
+	80% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		right: -30%;
+	}
+}
+
+@keyframes c3 {
+	0% {
+		opacity: 0;
+		left: -100%;
+	}
+
+	80% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		left: -30%;
+	}
+}
+
+@keyframes c4 {
+	0% {
+		opacity: 0;
+		transform: rotate(-45deg);
+	}
+
+	20% {
+		opacity: 1;
+		transform: rotate(-45deg);
+	}
+
+	40% {
+		transform: rotate(-90deg);
+	}
+
+	60% {
+		transform: rotate(-45deg);
+	}
+
+	80% {
+		opacity: 1;
+		transform: rotate(-90deg);
+	}
+
+	100% {
+		opacity: 0;
+		transform: rotate(-45deg);
+	}
+}
+
+@keyframes c5 {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	80% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}

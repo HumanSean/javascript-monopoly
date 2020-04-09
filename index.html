@@ -1,0 +1,109 @@
+<!--
+ * @Author: Human Sean
+ * @Email: humansean@qq.com
+ * @Date: 2020-03-16 10:58:11
+ * @LastEditTime: 2020-04-09 22:55:32
+ * @Description: JavaScript大富翁
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>JavaScript大富翁</title>
+    <link rel="stylesheet" href="monopoly.css">
+</head>
+<body>
+	<!-- 游戏设置区域 -->
+	<div class="setting full">
+		<div class="welcome middle">欢迎来到Sean自制的JavaScript大富翁~</div>
+		<div class="choosebox middle">
+			<h2 class="blacknwhite">起始金钱</h2>
+			<ul>
+				<li onclick="chooseNumber(0)">10000</li>
+				<li onclick="chooseNumber(1)">15000</li>
+				<li onclick="chooseNumber(2)">20000</li>
+				<li onclick="chooseNumber(3)">25000</li>
+			</ul>
+		</div>
+		<div class="choosechr middle">
+			<h2 class="blacknwhite">请选择角色</h2>
+			<ul>
+				<li><img class="middle" src="img/batman.png" alt=""><h3>Batman</h3></li>
+				<li><img class="middle" src="img/superman.png" alt=""><h3>Superman</h3></li>
+				<li><img class="middle" src="img/green lantern.png" alt=""><h3>Green Lantern</h3></li>
+				<li><img class="middle" src="img/robin.png" alt=""><h3>Robin</h3></li>
+				<li><img class="middle" src="img/catwoman.png" alt=""><h3>Catwoman</h3></li>
+				<li><img class="middle" src="img/harley quinn.png" alt=""><h3>Harley Quinn</h3></li>
+				<li><img class="middle" src="img/joker.png" alt=""><h3>Joker</h3></li>
+			</ul>
+		</div>
+	</div>
+	<!-- 游戏地图区域 -->
+	<div class="map full">
+		<!-- 中央区域 -->
+		<div class="big-box">
+			<h1 class="title"></h1>
+			<!-- 按键区域 -->
+			<button  class='blacknwhite' style="z-index: 2;">规则介绍</button>
+			<button  class='blacknwhite'>加快速度</button>
+			<button  class='blacknwhite'>开启托管</button>
+			<span>当前天数：<b>0</b></span>
+			<!-- 骰子区域 -->
+			<div class="control middle">
+				<div class="dice middle"></div>
+			</div>
+			<!-- 玩家信息区域 -->
+			<div class="info"></div>
+			<div class="instruction full">
+				<h2>特色介绍</h2>
+				<ul>
+					<li>每次路过起点都会获得$1000，如果刚好停在上面还有机会获得更多。</li>
+					<!-- <li>每过30天是发薪日，每位玩家将会获得丰盛的工资。</li> -->
+					<li>建议玩家多的时候起始金钱选少点、少的时候选多点，已增加游戏性。</li>
+					<li>点击改变速度按钮可以让游戏速度变得更快，或者恢复原样。</li>
+					<li>点击开启托管按钮，可以让电脑控制玩家角色，不过如果刚好轮到玩家角色的话还得再掷一次骰子托管才生效。</li>
+				</ul>
+				<h2>玩法说明</h2>
+				<ul>
+					<li>点击骰子进行游戏；电脑玩家会自动掷骰子。</li>
+					<li>游戏目标：让除了你外的所有玩家破产，你便是最有钱的那个仔！</li>
+					<li>每个棋格都会触发对应事件，分为以下几种：</li>
+					<li>普通地产：玩家可以自由购买并且升级造房子。别的玩家经过你的地产时就需要向你缴纳地租。鼠标放在棋格上会显示地产的详细信息。</li>
+					<li>机会 & 命运：随机触发一个好运或者厄运。</li>
+					<li>交所得税：缴纳随机数额的税。</li>
+					<li>赌场：获得掷骰子的点数乘以500的奖金。</li>
+					<li>捡到钱 & 起点：获得随机数量的金钱。</li>
+					<li>监狱：随机的天数内停止不能行动。</li>
+					<li>阿尔卑斯山：随机的天数不能行动以及花费随机的金钱。</li>
+					<li>机场：花费一定金钱来回穿梭。</li>
+					<li>地租机制：一共有4个等级，分别是空地、房子、别墅、酒店。越高等级收的地租就越高，对应比率分别是地价的五分之一、二分之一、原价、双倍价钱。</li>
+					<li>破产机制：一旦有玩家的钱低于0了，马上宣告破产，并且拥有的地产全部充公，其他玩家可以再次购买。</li>
+				</ul>
+				<h2>玩得开心~</h2>
+			</div>
+		</div>
+	</div>
+	<!-- 购买框 -->
+	<div class="dialog middle">
+		<p class="middle"></p>
+		<h2 class='blacknwhite'>购买地产</h2>
+		<div class="btn">确定</div>
+		<div class="btn">取消</div>
+	</div>
+	<!-- 消息框 -->
+	<div class="msgbox middle"></div>
+	<!-- 地产信息卡片 -->
+	<div class="infobox middle">
+		<h2 class='blacknwhite'>俄罗斯</h2>
+		<ul>
+			<li>地主：</li>
+			<li>价格：</li>
+			<li></li>
+		</ul>
+	</div>
+	<script src="js/dom-binding.js"></script>
+	<script src="js/data.js"></script>
+	<script src="js/initializing.js"></script>
+	<script src="js/monopoly.js"></script>
+</body>
+</html>
