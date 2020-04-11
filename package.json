@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/HumanSean/javascript-monopoly/issues"
   },
-  "homepage": "https://github.com/HumanSean/javascript-monopoly#readme"
+  "homepage": "https://github.com/HumanSean/javascript-monopoly#readme",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
 }
