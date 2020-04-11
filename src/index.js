@@ -2,7 +2,7 @@
  * @Author: Human Sean
  * @Email: humansean@qq.com
  * @Date: 2020-04-09 14:26:45
- * @LastEditTime: 2020-04-11 17:13:46
+ * @LastEditTime: 2020-04-11 17:41:24
  * @Description: 一切跟DOM有关的操作
  */
 // 快捷编号
@@ -52,7 +52,6 @@ function writeSetting(title, startNum, num) {
     choosebox.firstElementChild.innerHTML = title
     Array.from(choosebox.lastElementChild.children).forEach((node, index) => {
         node.innerHTML = startNum + index
-        console.log(num);
         switch (num) {
             case 3:
                 finishChooseNumber()
@@ -94,7 +93,7 @@ arrow.append(img)
  // 选择角色
 Array.from(choosechr.lastElementChild.children).forEach(item => {
 	item.firstElementChild.addEventListener('mouseover', function(){ // 下标箭头
-		item.appendChild(arrow);
+		item.appendChild(arrow)
 	})
     item.firstElementChild.addEventListener('click', () => { // 绑定角色
          // 处理选中效果
@@ -170,7 +169,7 @@ function updateRound() {
     //     updateInfo()
     //     setTimeout(() => {
     //         showMsgbox(`又到了每月的发薪日啦！每位玩家获得$${salary}`)
-    //     }, v * .5);
+    //     }, v * .5)
     // }
 }
 // 显示玩家信息
@@ -247,7 +246,7 @@ function showMsgbox(msg){
 	msgbox.innerHTML = msg
 	setTimeout(() => {
 		msgbox.style.display = "none"
-	},v * 1.6);
+	},v * 1.6)
 }
 // 显示购买框
 function showDialog(type, allowButton) {
@@ -315,6 +314,20 @@ document.querySelectorAll('.big-box button')[2].addEventListener('click', functi
         })
     }
     
+})
+
+// 预加载图片
+window.addEventListener('load', () => {
+    let images = []
+    let src = [
+        "img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg", "img/6.jpg", "img/s1.jpg", "img/s2.jpg",
+        "img/c1.png", "img/c2.png", "img/c3.png", "img/c4.png", "img/c5.png", "img/l1.png", "img/l2.png", "img/l3.png",
+        "img/arrow.png", "img/batman.png", "img/superman.png", "img/green lantern.png", "img/robin.png", "img/catwoman.png", "img/harley quinn.png", "img/joker.png",
+    ]
+    src.forEach((src, index) => {
+        images[index] = new Image()
+        images[index].src = src
+    })
 })
 /*
  * @Author: Human Sean
