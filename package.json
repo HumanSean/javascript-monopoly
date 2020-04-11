@@ -1,0 +1,19 @@
+{
+  "name": "javascript-monopoly",
+  "version": "1.0.0",
+  "description": "JavaScript大富翁，复刻了童年与小伙伴玩的经典大富翁游戏。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HumanSean/javascript-monopoly.git"
+  },
+  "author": "Human Sean",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HumanSean/javascript-monopoly/issues"
+  },
+  "homepage": "https://github.com/HumanSean/javascript-monopoly#readme"
+}
