@@ -2,7 +2,7 @@
  * @Author: Human Sean
  * @Email: humansean@qq.com
  * @Date: 2020-04-09 14:26:45
- * @LastEditTime: 2020-04-10 09:18:30
+ * @LastEditTime: 2020-04-11 17:13:55
  * @Description: 一切跟DOM有关的操作
  */
 // 快捷编号
@@ -41,6 +41,12 @@ for (let i = 0; i < 30; i++) {
     box.append(h3)
     map.prepend(box)
 }
+// 绑定选择
+Array.from(document.querySelectorAll('.choosebox li')).forEach((node, index) => {
+    node.addEventListener('click', () => {
+        chooseNumber(index)
+    })
+})
 // 更改选择配置时的DOM显示
 function writeSetting(title, startNum, num) { 
     choosebox.firstElementChild.innerHTML = title
@@ -259,7 +265,7 @@ function showDialog(type, allowButton) {
 	dialog.firstElementChild.innerHTML = msg
 	if (allowButton) {
 		dialog.children[2].style.pointerEvents = "auto"
-		dialog.children[2].style.background = "#e1e1e1"
+		dialog.children[2].style.background = "#f2f2f2"
 	} else {
 		dialog.children[2].style.pointerEvents = "none"
 		dialog.children[2].style.background = "#454545"
