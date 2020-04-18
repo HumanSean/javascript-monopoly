@@ -45,7 +45,7 @@ html, body {
 /*设置选项*/
 .setting {
 	background: rgba(0, 0, 0, .8);
-	z-index: 3;
+	z-index: 5;
 }
 
 .welcome {
@@ -280,7 +280,7 @@ html, body {
 	background: #f2f2f2;
 	border-radius: 10px;
 	transition: .5s;
-	z-index: 5;
+	z-index: 2;
 	height: 0;
 	overflow: scroll;
 }
