@@ -225,7 +225,8 @@ function checkBankrupt() {
             updateBankrupt(person.node, players.indexOf(person))
             places.forEach(place => { // 地产充公
                 if (place.owner === person.name) {
-                    place.owner = ""
+					place.owner = ""
+					place.node.style.boxShadow = "1px 1px 1px inset #454545, 1px -1px 1px inset #454545, -1px 1px 1px inset #454545, -1px -1px 1px inset #454545"
                 }
             })
             checkFinish() // 每当有人破产就判断是否结束
