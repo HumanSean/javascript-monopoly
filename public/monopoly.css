@@ -280,7 +280,7 @@ html, body {
 	background: #f2f2f2;
 	border-radius: 10px;
 	transition: .5s;
-	z-index: 1;
+	z-index: 5;
 	height: 0;
 	overflow: scroll;
 }
